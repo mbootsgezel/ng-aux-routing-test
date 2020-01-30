@@ -1,0 +1,51 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="width: 100%; display: flex; justify-content: space-between;">
+
+  <div class="router-links">
+
+    <!--  Altijd outlets meegeven, waarbij primary de main outlet is  -->
+    <a [routerLink]="[{ outlets: { primary: ['home'] } }]">
+      home
+    </a>
+
+    <a [routerLink]="[{ outlets: { primary: ['not-home'] } }]">
+      not-home
+    </a>
+  </div>
+
+  <div class="router-links">
+    <!--    Ze kunnen ook gecombineerd worden op deze manier-->
+    <a [routerLink]="[{ outlets: { primary: ['home'], secondary: ['navbar']} }]">
+      home/navbar
+    </a>
+    <a [routerLink]="[{ outlets: { primary: ['not-home'], secondary: ['login']} }]">
+      home/navbar
+    </a>
+  </div>
+
+
+  <div class="router-links">
+
+    <!--  Ook hier de secondary outlet meegeven  -->
+    <a [routerLink]="[{ outlets: { secondary: ['navbar']} }]">
+      navbar
+    </a>
+
+    <a [routerLink]="[{ outlets: { secondary: ['login'] } }]">
+      login
+    </a>
+  </div>
+</div>
+
+<div style="display: flex; justify-content: space-between;">
+
+
+  <!--  2 router outlets, 1 unnamed (de primary) en minstens 1 named (auxiliaries)-->
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+  <div>
+    <router-outlet name="secondary"></router-outlet>
+  </div>
+</div>
